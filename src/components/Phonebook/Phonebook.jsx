@@ -20,7 +20,7 @@ export default function Phonebook() {
 
 const addContact = (contact) => {
     if (isDublicate(contact)){
-    return Notiflix.Notify.warning(`${contact.name} - ${contact.number} is already in contact`)
+    return Notiflix.Notify.warning(`${contact.name} or ${contact.number} is already in contact`)
     }
 
     setContacts((prev) => {
@@ -45,7 +45,7 @@ const changeFilter = (e) => {
         };
     
 const isDublicate = ({name, number}) => {
-        const result = contacts.find((item) => item.name === name && item.number === number);
+        const result = contacts.find((item) => item.name.toLocaleLowerCase() === name.toLocaleLowerCase || item.number === number);
         return result;
     }
 
