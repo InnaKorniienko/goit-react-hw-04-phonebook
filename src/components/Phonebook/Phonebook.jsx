@@ -45,8 +45,7 @@ const changeFilter = (e) => {
         };
     
 const isDublicate = ({name, number}) => {
-        const result = contacts.find((item) => item.name.toLocaleLowerCase() === name.toLocaleLowerCase || item.number === number);
-        return result;
+        return contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase() || contact.number.toLowerCase() === number.toLowerCase());
     }
 
     
